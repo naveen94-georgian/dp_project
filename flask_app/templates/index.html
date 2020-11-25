@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block title %} Index {% endblock %}
+
+{% block styles %}
+  <script src="{{ url_for('static', filename='css/index.css') }}"></script>
+{% endblock %}
+
+{% block scripts %}
+  <script type=text/javascript>
+    $SCRIPT_ROOT = {{ request.script_root|tojson|safe }};
+  </script>
+  <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> -->
+  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+  <script src="{{ url_for('static', filename='js/index.js') }}"></script>
+{% endblock %}
+  
+{% block content %}
+    <p>Hello Naveen</p>
+    <input type="text" class="form-control-plaintext" value="{{ data }}" id="result"/>
+    <button id="tb" type="button" class="btn btn-primary">Say Hello</button>
+{% endblock %}
+
