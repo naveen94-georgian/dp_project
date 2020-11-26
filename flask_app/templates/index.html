@@ -2,20 +2,57 @@
 {% block title %} Index {% endblock %}
 
 {% block styles %}
-  <script src="{{ url_for('static', filename='css/index.css') }}"></script>
+<script src="{{ url_for('static', filename='css/index.css') }}"></script>
 {% endblock %}
 
 {% block scripts %}
-  <script type=text/javascript>
+<script type=text/javascript>
     $SCRIPT_ROOT = {{ request.script_root|tojson|safe }};
   </script>
-  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-  <script src="{{ url_for('static', filename='js/index.js') }}"></script>
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+<script src="{{ url_for('static', filename='js/index.js') }}"></script>
 {% endblock %}
-  
-{% block content %}
-    <p>Hello Naveen</p>
-    <input type="text" class="form-control-plaintext" value="{{ data }}" id="result"/>
-    <button id="tb" type="button" class="btn btn-primary">Say Hello</button>
+{% block nav_items %}
+<ul id="Mypagetabs" class="navbar-nav">
+  <li id="pg1"  class="nav-item">
+    <a class="nav-link js-toggle-trigger" href="#page1">Dashboard</a>
+  </li>
+  <li id="pg2" class="nav-item">
+    <a class="nav-link js-toggle-trigger" href="#page2">Api</a>
+  </li>
+</ul>
 {% endblock %}
 
+
+{% block content %}
+<div class="container-fluid">
+  <div id="page1" class="row">
+    <div class="col-md-12">
+      <h1>Hello Naveen</h1>
+    </div>
+  </div>
+  <div id="page2" class="row" style="display:none;">
+    <div class="col-md-12">
+      <div class="card mb-3">
+        <div class="card-header">
+          Featured
+        </div>
+        <div class="card-body">
+          <h5 class="card-title">Special title treatment</h5>
+          <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+          <a href="#" class="btn btn-primary">Go somewhere</a>
+        </div>
+      </div>
+      <div class="card mb-3">
+        <div class="card-header bg-white border-0">
+          <button id="tb" type="button" class="btn btn-primary">Load</button>
+        </div>
+        <div class="card-body">
+          <div id="my_table">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
