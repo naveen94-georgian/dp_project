@@ -8,7 +8,7 @@ lst = mongo.fetch_all()
 
 @app.route("/")
 def index():
-	return render_template('index.html')
+	return render_template('index.html' , data=lst)
 
 # @app.route('/get_data')
 # def get_data():
